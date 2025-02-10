@@ -12,5 +12,5 @@ class DbConfig:
         database='superapp_db',    # Your MySQL database name
         cursorclass=pymysql.cursors.DictCursor  # To get results as dictionaries
          )
-        self.connection.autocommit=True
+        self.connection.autocommit=True 
         return self.connection
