@@ -1,0 +1,8 @@
+.\testvenv\Scripts\activate
+ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass   #this is for bypass the venv error
+
+
+
+
+
+

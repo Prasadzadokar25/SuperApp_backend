@@ -1,16 +1,16 @@
-from flask import Flask, jsonify
-import pymysql.cursors
-
+import pymysql
+class DbConfig:
 # Initialize the Flask app
-app = Flask(__name__)
 
 # Database connection configuration
-def get_db_connection():
-    connection = pymysql.connect(
-        host='localhost', 
-        user='root',           # Your MySQL username
-        password='##Prasad25',   # Your MySQL password
+
+    def get_db_connection(self):
+        self.connection = pymysql.connect(
+        host='192.168.0.105', 
+        user='pratik',           # Your MySQL username
+        password='Pratik@999',   # Your MySQL password
         database='superapp_db',    # Your MySQL database name
         cursorclass=pymysql.cursors.DictCursor  # To get results as dictionaries
-    )
-    return connection
+         )
+        self.connection.autocommit=True 
+        return self.connection
