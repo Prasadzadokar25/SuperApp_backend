@@ -1,4 +1,4 @@
-from db_config import get_db_connection
+from src.db_config import DbConfig
 from werkzeug.security import check_password_hash
 
 class LoginDao:
@@ -15,7 +15,7 @@ class LoginDao:
         cursor = None
 
         try:
-            connection = get_db_connection()
+            connection = DbConfig(). get_db_connection()
             cursor = connection.cursor()  # Ensures result is a dictionary
 
             cursor.execute(query, (username, username))

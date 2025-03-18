@@ -6,9 +6,9 @@ class DbConfig:
 
     def get_db_connection(self):
         self.connection = pymysql.connect(
-        host='192.168.0.105', 
-        user='pratik',           # Your MySQL username
-        password='Pratik@999',   # Your MySQL password
+        host='localhost', 
+        user='root',           # Your MySQL username
+        password='##Prasad25',   # Your MySQL password
         database='superapp_db',    # Your MySQL database name
         cursorclass=pymysql.cursors.DictCursor  # To get results as dictionaries
          )

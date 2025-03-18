@@ -11,7 +11,11 @@ class User:
                  user_status: bool = True,  # Status defaults to True
                  password:Optional[str]=None,
                  created_date: Optional[datetime] = None, 
-                 modified_date: Optional[datetime] = None):
+                 modified_date: Optional[datetime] = None,  
+                 login_type: Optional[datetime] = None, 
+                 google_uid: Optional[datetime] = None,
+                 refered_by: Optional[int] = None,
+                 ):
 
         self.user_id = user_id 
         self.user_name = user_name
@@ -22,6 +26,9 @@ class User:
         self.password=password
         self.created_date = created_date if created_date else datetime.now()
         self.modified_date = modified_date if modified_date else datetime.now()
+        self.login_type = login_type
+        self.google_uid = google_uid
+        self.refered_by = refered_by
 
     def to_json(self) -> Dict[str, Any]:
         return {
@@ -34,6 +41,9 @@ class User:
             'password':self.password,
             "created_date": self.created_date.isoformat() if self.created_date else None,
             "modified_date": self.modified_date.isoformat() if self.modified_date else None,
+            "login_type":self.login_type,
+            "google_uid":self.google_uid,
+            "refered_by":self.refered_by,
         }
 
     @classmethod
@@ -54,5 +64,8 @@ class User:
             user_status=json_data.get("user_status", True), # Default status to True
             password=json_data.get('password'),
             created_date=created_date,
-            modified_date=modified_date
+            modified_date=modified_date,
+            login_type = json_data.get('login_type'),
+            google_uid = json_data.get('google_uid'),
+            refered_by = json_data.get('refered_user_id')
         )

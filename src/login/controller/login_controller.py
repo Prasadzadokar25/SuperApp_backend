@@ -1,5 +1,6 @@
 from flask import request, jsonify
-from login.dao.login_dao import LoginDao
+from src.login.dao.login_dao import LoginDao
+
 
 class LoginController:
 
