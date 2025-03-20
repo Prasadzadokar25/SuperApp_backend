@@ -16,7 +16,7 @@ class ItemsController:
         except Exception as e:
             return jsonify({'message': str(e)}), 400
 
-    def add_items(item_id):
+    def update_item_stack(item_id):
         """
         Controller method to update the stock of an item.
         """

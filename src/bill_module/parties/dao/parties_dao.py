@@ -58,7 +58,6 @@ class PartiesDao:
             result=cursur.fetchall()
             if result:
                 return jsonify({"message":"party already exists"}),209
-            print(result)
             cursur.execute(query,(customer.customer_name,customer.customer_contact,customer.customer_type.value,customer.customer_gstin,customer.customer_pan,customer.shop_id))
             connection.commit()
             return jsonify({"message":"party added sucessfully!"}),200       
