@@ -9,6 +9,6 @@ class BillController:
             bills =  BillDao().get_bill_for_dates(shop_id,start_date,end_date)
             if bills:
                 return jsonify({"data":bills}),200
-            return jsonify({"massage":"No data found!"}),204
+            return jsonify({"massage":"No data found!"}),404
         except Exception as e:
             return jsonify({"error":"server internal error"}),500
