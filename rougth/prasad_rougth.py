@@ -18,3 +18,4 @@ user_manegment_blueprint.add_url_rule('/user/<user_id>', view_func=UserManegment
 shop_manegment_blueprint = Blueprint('shop_manegment',__name__)
 shop_manegment_blueprint.add_url_rule("/register_shop",view_func=ShopRegistrationContoller.registerNewShop, methods=['POST'])
 shop_manegment_blueprint.add_url_rule("/checkShopRegistry/<user_id>",view_func=ShopRegistrationContoller.checkShopRegistry, methods=['GET'])
+shop_manegment_blueprint.add_url_rule("/billbookshop/<shop_id>",view_func=ShopRegistrationContoller.getShopInfo, methods=['GET'])

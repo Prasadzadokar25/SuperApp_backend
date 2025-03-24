@@ -12,5 +12,9 @@ class ShopRegistrationContoller:
     @staticmethod
     def checkShopRegistry(user_id):
         return ShopRegistrationDao().checkShopRegistry(user_id)
+    
+    @staticmethod
+    def getShopInfo(shop_id):
+        return ShopRegistrationDao().getShopInfo(shop_id)
         
         
