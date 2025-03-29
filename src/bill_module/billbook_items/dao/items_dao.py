@@ -56,3 +56,27 @@ class BillbookItemsDao:
             cursur.close()
 
 
+    def add_new_item(self,item:BillbookItem):
+        """
+        Inserts a new item (party) into the database.
+        
+    
+        """
+        query='''insert into billbook_items (item_name,item_unit,item_sale_price,item_purchase_price,item_gst,item_shn_no,item_stock,item_image,item_description,item_low_stock_alert,item_low_stock_quantity,shop_id) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'''
+        query2 = "select item_id from billbook_items where item_name =%s and shop_id = %s"
+        try:
+            connection=DbConfig().get_db_connection()
+            cursur=connection.cursor()
+            cursur.execute(query2,(item.item_name, item.shop_id))
+            result=cursur.fetchall()
+            if result:
+                return jsonify({"message":"item with this name already exists"}),209
+            cursur.execute(query,(item.item_name,item.item_unit,item.item_sale_price,item.item_purchase_price,item.item_gst,item.item_shn_no,item.item_stock,item.item_image,item.item_description,item.item_low_stock_alert,item.item_low_stock_quantity, item.shop_id))
+            connection.commit()
+            return jsonify({"message":"item added sucessfully!"}),200       
+        except Exception as e:
+            connection.rollback()  # Rollback to prevent auto-increment issue
+
+            return jsonify({f"message":f"server error{e}"}),400
+        finally:
+            cursur.close()

@@ -8,6 +8,7 @@ from src.sign_up.controller.controller import SignUpController
 from rougth.prasad_rougth import prasad_blueprint
 from rougth.prasad_rougth import shop_manegment_blueprint
 from rougth.prasad_rougth import user_manegment_blueprint
+from rougth.prasad_rougth import item_manegment_blueprint
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -30,6 +31,7 @@ app.add_url_rule('/get_bill_for_dates/<int:shop_id>/<start_date>/<end_date>', vi
 app.register_blueprint(prasad_blueprint)  # Now login route will work
 app.register_blueprint(shop_manegment_blueprint)  # Now login route will work
 app.register_blueprint(user_manegment_blueprint)  # Now login route will work
+app.register_blueprint(item_manegment_blueprint)  # Now login route will work
 
 
 

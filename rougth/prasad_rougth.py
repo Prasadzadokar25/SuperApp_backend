@@ -1,3 +1,4 @@
+from src.bill_module.billbook_items.controller.items_controller import ItemsController
 from src.bill_module.shop_manegment.controller.shop_registration_controller import ShopRegistrationContoller
 from src.sign_up.controller.controller import SignUpController
 from src.login.controller.login_controller import LoginController
@@ -19,3 +20,6 @@ shop_manegment_blueprint = Blueprint('shop_manegment',__name__)
 shop_manegment_blueprint.add_url_rule("/register_shop",view_func=ShopRegistrationContoller.registerNewShop, methods=['POST'])
 shop_manegment_blueprint.add_url_rule("/checkShopRegistry/<user_id>",view_func=ShopRegistrationContoller.checkShopRegistry, methods=['GET'])
 shop_manegment_blueprint.add_url_rule("/billbookshop/<shop_id>",view_func=ShopRegistrationContoller.getShopInfo, methods=['GET'])
+
+item_manegment_blueprint = Blueprint('item_manegment',__name__)
+item_manegment_blueprint.add_url_rule("/addnewbillbookitem",view_func=ItemsController.add_item,methods=['POST'])

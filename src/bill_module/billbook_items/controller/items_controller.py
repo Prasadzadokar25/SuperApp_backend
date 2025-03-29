@@ -15,6 +15,17 @@ class ItemsController:
             return jsonify({'data': data}), 200
         except Exception as e:
             return jsonify({'message': str(e)}), 400
+        
+    def add_item():
+        """
+        Controller method to update the stock of an item.
+        """
+        
+
+        data=request.json
+        items=BillbookItem.from_json(data)
+        return BillbookItemsDao().add_new_item( items) 
+           
 
     def update_item_stack(item_id):
         """
